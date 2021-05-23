@@ -8,7 +8,8 @@
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx --fix . --ignore-path .gitignore",
     "lint:style": "stylelint --fix \"**/*.{css,scss}\" --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "latest",
@@ -40,14 +41,12 @@
     "stylelint-scss": "^3.19.0",
     "typescript": "4.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "yarn lint:js"
+    ],
+    "*.{css,scss}": [
+      "yarn lint:style"
     ]
   },
   "license": "MIT"
