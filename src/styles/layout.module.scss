@@ -1,0 +1,10 @@
+@import "./variables.scss";
+.div {
+  @extend %center;
+
+  padding-top: 20vh;
+  img {
+    border-radius: 50%;
+    filter: grayscale(0.8);
+  }
+}
